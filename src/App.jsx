@@ -46,5 +46,33 @@ const App = () => {
         };
     }, []);
 
-    
-}
+    return (
+        <div className="centre">
+           <h2>Nkanta's Calculator</h2>
+           <div className="calculater">
+            <div className="display">
+              <div className="inputDisplay">{input}</div>
+              <div className="resultDisplay">{result}</div>
+            </div>
+
+            <div className="buttonWrap">
+                {buttons.map(
+                    (
+                        button,
+                    ) => (
+                        <button key={index} onClick={() => handleClick(button)} className={`btn ${!isNaN(button) ? "numberBtn" : ""} ${
+                            button === "C" ? "clearBtn" : ""
+                        }`}
+                        style={{gridColumn: button === "C" ? "span 2" : "auto"}}
+                        >
+                            {button}
+                        </button>
+                    )
+                )}
+            </div>
+           </div>
+        </div>
+    );
+};
+
+export default App;
